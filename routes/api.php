@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\MedicineController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\RolePermission\PermissionController;
@@ -32,7 +33,7 @@ Route::middleware(['auth:api', 'permission:all_permission'])->group(function () 
 
 // Regular user routes
 Route::middleware(['auth:api', 'permission:user_permission'])->group(function () {
-    
+
 });
 
 
@@ -44,3 +45,12 @@ Route::middleware(['auth:api', 'permission:user_permission'])->group(function ()
 Route::apiResource('/customers', \App\Http\Controllers\API\CustomerController::class);
 
 /*=====  End of customers   ======*/
+
+/*===========================
+=           medicines           =
+=============================*/
+
+Route::apiResource('/medicines', \App\Http\Controllers\API\MedicineController::class);
+
+/*=====  End of medicines   ======*/
+Route::get('/import-medicines', [MedicineController::class, 'importMedicines']);
