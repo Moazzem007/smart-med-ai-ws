@@ -15,7 +15,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('medicines', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->integer('id')->primary()->autoIncrement();
 			$table->string('sku')->nullable();
 			$table->string('gtin')->nullable();
 			$table->string('brand_name')->required();
