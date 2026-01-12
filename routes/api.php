@@ -95,3 +95,11 @@ Route::apiResource('/carts', \App\Http\Controllers\API\CartController::class);
 Route::apiResource('/cartItems', \App\Http\Controllers\API\CartItemController::class);
 
 /*=====  End of cartItems   ======*/
+
+/*===========================
+=           appInfos           =
+=============================*/
+
+Route::apiResource('/appInfos', \App\Http\Controllers\API\AppInfoController::class);
+
+/*=====  End of appInfos   ======*/
