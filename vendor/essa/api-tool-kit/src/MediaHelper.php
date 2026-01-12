@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Storage;
 
 class MediaHelper
 {
-    protected static ?string $disk = null;
+    protected static ?string $disk = 'public';
 
     /**
      * Uploads a file to the specified path on the configured storage disk.

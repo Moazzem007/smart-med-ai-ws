@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\API\CartController;
+use App\Http\Controllers\API\Featured_medicineController;
 use App\Http\Controllers\API\MedicineController;
+use App\Http\Controllers\API\PromotionalBannerController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\RolePermission\PermissionController;
@@ -33,7 +36,9 @@ Route::middleware(['auth:api', 'permission:all_permission'])->group(function () 
 
 // Regular user routes
 Route::middleware(['auth:api', 'permission:user_permission'])->group(function () {
-
+Route::post('/add-to-cart', [CartController::class, 'addToCart']);
+Route::get('/get-cart-items', [CartController::class, 'getCartItems']);
+Route::get('/delete-from-cart/{productId}', [CartController::class, 'deleteFromCart']);
 });
 
 
@@ -54,3 +59,39 @@ Route::apiResource('/medicines', \App\Http\Controllers\API\MedicineController::c
 
 /*=====  End of medicines   ======*/
 Route::get('/import-medicines', [MedicineController::class, 'importMedicines']);
+
+/*===========================
+=           promotional_banners           =
+=============================*/
+
+Route::apiResource('/promotional_banners', PromotionalBannerController::class);
+
+/*=====  End of promotional_banners   ======*/
+
+/*===========================
+=           featured_medicines           =
+=============================*/
+
+Route::apiResource('/featured_medicines', \App\Http\Controllers\API\Featured_medicineController::class);
+
+/*=====  End of featured_medicines   ======*/
+
+
+Route::get('/featured-medicine-list', [Featured_medicineController::class, 'featuredMedicineList']);
+
+
+/*===========================
+=           carts           =
+=============================*/
+
+Route::apiResource('/carts', \App\Http\Controllers\API\CartController::class);
+
+/*=====  End of carts   ======*/
+
+/*===========================
+=           cartItems           =
+=============================*/
+
+Route::apiResource('/cartItems', \App\Http\Controllers\API\CartItemController::class);
+
+/*=====  End of cartItems   ======*/
