@@ -9,13 +9,13 @@ class CreateAppInfoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'platform' => ['required', 'string'],
-			'current_version' => ['required', 'string'],
-			'minimum_version' => ['required', 'string'],
-			'maintenance_mode' => ['required', 'boolean'],
+            'platform' => ['string'],
+			'current_version' => ['string'],
+			'minimum_version' => ['string'],
+			'maintenance_mode' => ['boolean'],
 			'maintenance_message' => ['nullable', 'string'],
-			'force_update' => ['required', 'boolean'],
-			'active' => ['required', 'boolean'],
+			'force_update' => ['boolean'],
+			'active' => ['boolean'],
         ];
     }
 }

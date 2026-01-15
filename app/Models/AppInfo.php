@@ -19,6 +19,8 @@ class AppInfo extends Model
      *
      * @var array
      */
+    protected $table = 'appinfos';
+
     protected $fillable = [
         'platform',
 		'current_version',

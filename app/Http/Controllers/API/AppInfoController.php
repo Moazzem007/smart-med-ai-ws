@@ -50,5 +50,5 @@ class AppInfoController extends Controller
         return $this->responseDeleted();
     }
 
-   
+
 }

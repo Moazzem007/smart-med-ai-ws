@@ -13,7 +13,7 @@ class AppInfoResource extends JsonResource
             'platform' => $this->platform,
 			'current_version' => $this->current_version,
 			'minimum_version' => $this->minimum_version,
-			'maintenance_mode' => $this->maintenance_mode,
+			'maintenance_mode' => (int)$this->maintenance_mode,
 			'maintenance_message' => $this->maintenance_message,
 			'force_update' => $this->force_update,
 			'active' => $this->active,
