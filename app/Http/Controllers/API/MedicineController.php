@@ -69,9 +69,8 @@ class MedicineController extends Controller
             while (($row = fgetcsv($handle)) !== false) {
 
                 // Map CSV to DB columns
-                $id = Medicine::max('id') + 1;
+                // $id = (int)Medicine::max('id') + 1;
                 $data = [
-                    // 'id' => $id,
                     'brand_name'       => $row[1] ?? null,
                     'generic_name'    => $row[5] ?? null,
                     'manufacturer'   => $row[7] ?? null,

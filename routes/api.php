@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\CartController;
 use App\Http\Controllers\API\Featured_medicineController;
 use App\Http\Controllers\API\MedicineController;
+use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\PromotionalBannerController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\UserController;
@@ -39,6 +40,22 @@ Route::middleware(['auth:api', 'permission:user_permission'])->group(function ()
 Route::post('/add-to-cart', [CartController::class, 'addToCart']);
 Route::get('/get-cart-items', [CartController::class, 'getCartItems']);
 Route::get('/delete-from-cart/{productId}', [CartController::class, 'deleteFromCart']);
+
+
+
+
+/*===========================
+=           orders           =
+=============================*/
+
+Route::apiResource('orders', OrderController::class);
+Route::post('/get-orders-by-date', [OrderController::class, 'getOrdersByDate']);
+
+Route::get('/customer-order-info', [OrderController::class, 'getCustomerOrderInfo']);
+Route::post('/get-customer-order-info-by-date', [OrderController::class, 'getCustomerOrderInfoByDate']);
+
+/*=====  End of orders   ======*/
+
 });
 
 
@@ -103,3 +120,5 @@ Route::apiResource('/cartItems', \App\Http\Controllers\API\CartItemController::c
 Route::apiResource('/appInfos', \App\Http\Controllers\API\AppInfoController::class);
 
 /*=====  End of appInfos   ======*/
+
+
