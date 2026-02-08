@@ -121,4 +121,12 @@ Route::apiResource('/appInfos', \App\Http\Controllers\API\AppInfoController::cla
 
 /*=====  End of appInfos   ======*/
 
+/*===========================
+=           bloodBanks           =
+=============================*/
 
+Route::apiResource('/bloodBanks', \App\Http\Controllers\API\BloodBankController::class);
+
+Route::post('/sync-blood-banks', [\App\Http\Controllers\API\BloodBankController::class, 'syncBloodBanks']);
+
+/*=====  End of bloodBanks   ======*/
